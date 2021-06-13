@@ -1,5 +1,5 @@
 class Room 
-    attr_accesor :reference, :name, :description, :connections
+    attr_accessor :reference, :name, :description, :connections
     def initialize(reference, name, description, connections)
         @reference = reference
         @name = name
@@ -11,7 +11,7 @@ end
 
 
 class Dungeon
-    attr_accesor :player
+    attr_accessor :player
 
     def initialize player
         @player = player
@@ -22,17 +22,19 @@ class Dungeon
         @rooms[reference] = Room.new(reference,name,description, connections)
     end
 
-    def start location
-        @player.location = location
-        show_current_description
+
+    def find_room_in_dungeon reference
+        @rooms[reference]
     end
+
 
     def show_current_description
         puts find_room_in_dungeon(@player.location).full_description
     end
 
-    def find_room_in_dungeon reference
-        @rooms[reference]
+    def start location
+        @player.location = location
+        show_current_description
     end
 
     def find_room_in_direction
@@ -46,3 +48,4 @@ class Dungeon
         show_current_description
     end
 end
+5;
