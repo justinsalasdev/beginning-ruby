@@ -12,6 +12,7 @@
   </thead>
 
   <tbody>
+  
     <% @entries.each do |entry| %>
       <tr>
         <td><%= entry.title %></td>
@@ -25,5 +26,5 @@
 </table>
 
 <br>
-
+<%= session[:request] %>
 <%= link_to 'New Entry', new_entry_path %>

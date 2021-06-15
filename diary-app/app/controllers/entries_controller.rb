@@ -1,5 +1,14 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: %i[ show edit update destroy ]
+  before_action :count_request_in_session
+ 
+
+  def count_request_in_session 
+    session[:request] ||= 0;
+    session[:request] += 1;
+    puts('ran')
+  end
+
 
   # GET /entries or /entries.json
   def index
