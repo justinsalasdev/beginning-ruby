@@ -7,3 +7,13 @@
         method: :delete, data:{confirm: "Are you sure?"}%>
   </li>
 </ul>
+
+<h2>Comments</h2>
+<% @article.comments.each do |comment|%>
+  <%=render 'comment', comment:comment%>
+<%end%>
+
+
+<h2>Add a comment:</h2>
+<%=render 'comments/form'%>
+  
